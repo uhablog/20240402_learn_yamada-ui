@@ -3,13 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { UIProvider } from '@yamada-ui/react';
+import { UIProvider, extendTheme } from '@yamada-ui/react';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const customTheme = extendTheme({
+  spaces: {
+    xs: "1rem",
+    sm: "1.25rem",
+    md: "1.5rem",
+    normal: "2rem",
+    lg: "2.5rem",
+    xl: "3rem",
+  },
+})();
+
 root.render(
-  <UIProvider>
+  <UIProvider theme={customTheme} >
     <React.StrictMode>
       <App />
     </React.StrictMode>
